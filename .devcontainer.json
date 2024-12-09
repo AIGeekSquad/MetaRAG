@@ -1,0 +1,19 @@
+{
+    "name": "CPU DevContainer",
+    "image": "mcr.microsoft.com/devcontainers/base:debian",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.10"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode-remote.vscode-remote-extensionpack",
+                "ms-azuretools.vscode-docker",
+                "ms-python.python"
+            ]
+        }
+    }

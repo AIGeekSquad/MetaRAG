@@ -1,0 +1,41 @@
+services:
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j/test#23431234
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+
+  # milvus:
+  #   image: milvusdb/milvus:latest
+  #   container_name: milvus
+  #   ports:
+  #     - "19530:19530"
+  #     - "19121:19121"
+  #   volumes:
+  #     - milvus:/var/lib/milvus
+
+  # weaviate:
+  #   image: semitechnologies/weaviate:latest
+  #   container_name: weaviate
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     WEAVIATE_CONFIG: /etc/weaviate/config.json
+  #   volumes:
+  #     - ./weaviate-config.json:/etc/weaviate/config.json
+
+volumes:
+  qdrant_storage:
+  milvus:
+  weaviate:

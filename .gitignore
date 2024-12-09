@@ -1,0 +1,6 @@
+src/**/__pycache__/
+default.sqlite
+reports/
+reports_live/
+aipipeline/**/__pycache__/
+__pycache__/

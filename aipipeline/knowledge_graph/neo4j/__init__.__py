@@ -1,0 +1,7 @@
+# __package__
+
+from knowledge_graph.neo4j.neo4j_storage import Neo4JStorage
+
+__all__ = [
+    "Neo4JStorage",
+]

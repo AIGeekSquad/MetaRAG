@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: querysvc-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: querysvc-app
+  template:
+    metadata:
+      labels:
+        app: querysvc-app
+    spec:
+      containers:
+      - name: querysvc-app
+        image: cappsinttestregistrypublic.azurecr.io/query-svc
+        ports:
+        - containerPort: 8000
+        command: ["uvicorn"]
+        args: ["query_server:app", "--host", "0.0.0.0", "--port", "8000"]
+        env:
+        - name: NEO4J_HOST_URI
+          value: bolt://aitest-neo4j-lb-neo4j.default.svc.cluster.local:7687
+        - name: QDRANT_HOST
+          value: qdrant.default.svc.cluster.local
+        - name: NEO4J_PASSWORD
+          value: aihackpass
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+          requests:
+            cpu: "0.5"
+            memory: "512Mi"
+
