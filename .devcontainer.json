@@ -16,4 +16,6 @@
                 "ms-python.python"
             ]
         }
-    }
+    },
+    "postStartCommand": "sudo apt install libmagic1"
+}
