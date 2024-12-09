@@ -4,3 +4,5 @@ reports/
 reports_live/
 aipipeline/**/__pycache__/
 __pycache__/
+
+dist/

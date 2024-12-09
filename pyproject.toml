@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "metarag"
+name = "aipipeline"
 version = "0.1.0"
 description = ""
 authors = ["Tara Walker", "Luis Quintanilla", "Diego Colombo", "Rich Lander"]
