@@ -1,32 +1,3 @@
-<!--=========================README TEMPLATE INSTRUCTIONS=============================
-======================================================================================
-
-- THIS README TEMPLATE LARGELY CONSISTS OF COMMENTED OUT TEXT. THIS UNRENDERED TEXT IS MEANT TO BE LEFT IN AS A GUIDE 
-  THROUGHOUT THE REPOSITORY'S LIFE WHILE END USERS ONLY SEE THE RENDERED PAGE CONTENT. 
-- Any italicized text rendered in the initial template is intended to be replaced IMMEDIATELY upon repository creation.
-
-- This template is default but not mandatory. It was designed to compensate for typical gaps in Microsoft READMEs 
-  that slow the pace of work. You may delete it if you have a fully populated README to replace it with.
-
-- Most README sections below are commented out as they are not known early in a repository's life. Others are commented 
-  out as they do not apply to every repository. If a section will be appropriate later but not known now, consider 
-  leaving it in commented out and adding an issue as a reminder.
-- There are additional optional README sections in the external instruction link below. These include; "citation",  
-  "built with", "acknowledgments", "folder structure", etc.
-- You can easily find the places to add content that will be rendered to the end user by searching 
-within the file for "TODO".
-
-
-
-- ADDITIONAL EXTERNAL TEMPLATE INSTRUCTIONS:
-  -  https://aka.ms/StartRight/README-Template/Instructions
-
-======================================================================================
-====================================================================================-->
-
-
-<!---------------------[  Description  ]------------------<recommended> section below------------------>
-
 # ai-apps-job: Ingestion & Retrieval Pipeline with Benchmarking and Query capabilities
 
 - [ai-apps-job: Ingestion \& Retrieval Pipeline with Benchmarking and Query capabilities](#ai-apps-job-ingestion--retrieval-pipeline-with-benchmarking-and-query-capabilities)
@@ -46,27 +17,10 @@ within the file for "TODO".
   - [Contributing](#contributing)
     - [Support \& Reuse Expectations](#support--reuse-expectations)
 
-<!-- 
-INSTRUCTIONS:
-- Write description paragraph(s) that can stand alone. Remember 1st paragraph may be consumed by aggregators to improve 
-  search experience.
-- You description should allow any reader to figure out:
-    1. What it does?
-    2. Why was it was created?
-    3. Who created?
-    4. What is it's maturity?
-    5. What is the larger context?
-- Write for a reasonable person with zero context regarding your product, org, and team. The person may be evaluating if 
-this is something they can use.
-
-How to Evaluate & Examples: 
-  - https://aka.ms/StartRight/README-Template/Instructions#description
--->
-
 Vectorization Library for the AI Apps
+
 ## Description
 AI Pipeline from Dr. Diego Colombo and Tara E. Walker to build a dynamic ingestion and retrieval pipeline for various RAG techniques and storage options. Desired application for this pipeline is to be used as a backend processing service at scale with queuing mechanisms for Generative AI ingestion and retrieval using document graph and semantic relationships. This leverages open source framework LlamaIndex and has integration with other common AI frameworks. 
-
 
 ### Goals
 Goal of this project is to provide a scalabe ingestion and retrieval engine across multi data types without developers that are familiar with AI/ML/NLP concepts to easily build applications that take in content for a Advanced RAG scenario. 
@@ -193,11 +147,6 @@ Configuration does not allow using gh_gh_gh as placeholder for api version if th
 
 
 ### Benchmarking
-<!-----------------------[  License  ]----------------------<optional> section below--------------------->
-
-<!-- 
-## License 
---> 
 
 To evaluate the effectiveness of an advanced RAG pipeline, it is essential to do evaluation of the metrics on the configuration of the RAG pipeline based upon the configuration passed. 
 
@@ -218,123 +167,41 @@ To create a configuration and execute a Benchmarking event, the code example is 
 ```
 The repo has an example of an Benchmark Session application in code file: *_benchmark_app.py_*
 
-
-<!-----------------------[  Getting Started  ]--------------<recommended> section below------------------>
 ## Getting Started
 
-<!-- 
-INSTRUCTIONS:
-  - Write instructions such that any new user can get the project up & running on their machine.
-  - This section has subsections described further down of "Prerequisites", "Installing", and "Deployment". 
+1. Install libmagic
 
-How to Evaluate & Examples:
-  - https://aka.ms/StartRight/README-Template/Instructions#getting-started
--->
+  ```bash
+  sudo apt install libmagic1
+  ```
 
-<!---- [TODO]  CONTENT GOES BELOW ------->
-*Description of how to install and use the code or content goes here*
-<!------====-- CONTENT GOES ABOVE ------->
+1. Install dependencies
 
+  ```bash
+  poetry install
+  ```
 
-<!-----------------------[ Prerequisites  ]-----------------<optional> section below--------------------->
+1. Configure environment variables for your model. See `IngestionEnvs` in *aipipeline/utilities/constants.py*.
+1. Start the app
+
+  ```bash
+  poetry shell
+  python main.py
+  ```
+
 ### Prerequisites
 
-<!--------------------------------------------------------
-INSTRUCTIONS:
-- Describe what things a new user needs to install in order to install and use the repository. 
+#### Local
 
-How to Evaluate & Examples:
-  - https://aka.ms/StartRight/README-Template/Instructions#prerequisites
----------------------------------------------------------->
+- Ubuntu 22.04 LTS
+- Python 3.11
+- Poetry
+- Docker
+- Neo4J
+- Vector DB (Qdrant)
 
-<!---- [TODO]  CONTENT GOES BELOW ------->
-Frameworks and libaries needed for this repo are noted in the requirements.txt file. 
-<!------====-- CONTENT GOES ABOVE ------->
-
-
-<!-----------------------[  Installing  ]-------------------<optional> section below------------------>
-### Installing
-
-<!--
-INSTRUCTIONS:
-- A step by step series of examples that tell you how to get a development environment and your code running. 
-- Best practice is to include examples that can be copy and pasted directly from the README into a terminal.
-
-How to Evaluate & Examples:
-  - https://aka.ms/StartRight/README-Template/Instructions#installing
-
-<!---- [TODO]  CONTENT GOES BELOW ------->
-Please install using requirements.txt file and/or setup.py
-<!------====-- CONTENT GOES ABOVE ------->
-
-
-<!-----------------------[  Tests  ]------------------------<optional> section below--------------------->
-<!-- 
-## Tests
- -->
-
-<!--
-INSTRUCTIONS:
-- Explain how to run the tests for this project. You may want to link here from Deployment (CI/CD) or Contributing sections.
-
-How to Evaluate & Examples:
-  - https://aka.ms/StartRight/README-Template/Instructions#tests
--->
-
-<!---- [TODO]  CONTENT GOES BELOW ------->
-<!--
-
-*Explain what these tests test and why* 
-
-```
-Give an example
-``` 
-
--->
-<!------====-- CONTENT GOES ABOVE ------->
-
-
-<!-----------------------[  Deployment (CI/CD)  ]-----------<optional> section below--------------------->
 ### Deployment (CI/CD)
 
-<!-- 
-INSTRUCTIONS:
-- Describe how to deploy if applicable. Deployment includes website deployment, packages, or artifacts.
-- Avoid potential new contributor frustrations by making it easy to know about all compliance and continuous integration 
-    that will be run before pull request approval.
-- NOTE: Setting up an Azure DevOps pipeline gets you all 1ES compliance and build tooling such as component governance. 
-  - More info: https://aka.ms/StartRight/README-Template/integrate-ado
-
-How to Evaluate & Examples:
-  - https://aka.ms/StartRight/README-Template/Instructions#deployment-and-continuous-integration
--->
-
-<!---- [TODO]  CONTENT GOES BELOW ------->
-_At this time, the repository does not use continuous integration or produce a website, artifact, or anything deployed._
-<!------====-- CONTENT GOES ABOVE ------->
-
-
-<!-----------------------[  Versioning and Changelog  ]-----<optional> section below--------------------->
-
-<!-- ### Versioning and Changelog -->
-
-<!-- 
-INSTRUCTIONS:
-- If there is any information on a changelog, history, versioning style, roadmap or any related content tied to the 
-  history and/or future of your project, this is a section for it.
-
-How to Evaluate & Examples:
-  - https://aka.ms/StartRight/README-Template/Instructions#versioning-and-changelog
--->
-
-<!---- [TODO]  CONTENT GOES BELOW ------->
-<!-- We use [SemVer](https://aka.ms/StartRight/README-Template/semver) for versioning. -->
-<!------====-- CONTENT GOES ABOVE ------->
-
-
------------------------------------------------
-
-<!-----------------------[  Concepts and Resources  ]-----------------<recommended> section below------------------>
 ## Concepts and Resources
 
 ### Understanding different techniques for Retrieval Augmented Generation
