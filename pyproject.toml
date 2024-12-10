@@ -36,6 +36,7 @@ scikit-learn = "^1.6.0"
 trulens-eval = "^1.2.10"
 uvicorn = {extras = ["standard"], version = "^0.32.1"}
 wikipedia = "^1.4.0"
+python-magic-bin = "^0.4.14"
 
 
 [build-system]
