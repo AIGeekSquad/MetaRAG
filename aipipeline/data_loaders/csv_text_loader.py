@@ -3,10 +3,9 @@
 
 from aipipeline.data_loaders.loaders_base_component import DataLoaderBaseComponent
 from aipipeline.knowledge_graph.kg_base_component import DocumentGraphBaseComponent
-from aipipeline.knowledge_graph.node_transformations import generate_summary_node
 from aipipeline.node_transformers.knowledge_generator import ApplyKnowledgeLabel, KnowledgeGenerator
 
-from llama_index_client import TextNode
+from llama_index.core.schema import TextNode
 from llama_index.core import SimpleDirectoryReader
 from llama_index.core.base.embeddings.base import BaseEmbedding
 from llama_index.core.embeddings.utils import resolve_embed_model
