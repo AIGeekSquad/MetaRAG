@@ -1,15 +1,15 @@
 # ai-apps-job: Ingestion & Retrieval Pipeline with Benchmarking and Query capabilities
 
 - [ai-apps-job: Ingestion \& Retrieval Pipeline with Benchmarking and Query capabilities](#ai-apps-job-ingestion--retrieval-pipeline-with-benchmarking-and-query-capabilities)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installing](#installing)
   - [Description](#description)
     - [Goals](#goals)
     - [Ingestion](#ingestion)
     - [Retrieval](#retrieval)
     - [Benchmarking](#benchmarking)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installing](#installing)
-    - [Deployment (CI/CD)](#deployment-cicd)
+  - [Deployment (CI/CD)](#deployment-cicd)
   - [Concepts and Resources](#concepts-and-resources)
     - [Understanding different techniques for Retrieval Augmented Generation](#understanding-different-techniques-for-retrieval-augmented-generation)
     - [Vector Databases, Similarity Search, and Quantizations](#vector-databases-similarity-search-and-quantizations)
@@ -19,8 +19,46 @@
 
 Vectorization Library for the AI Apps
 
+## Getting Started
+
+### Prerequisites
+
+#### Local
+
+- Ubuntu 22.04 LTS
+- Python 3.11
+- [Poetry](https://python-poetry.org/docs/)
+- Docker
+- Neo4J
+- Vector DB (Qdrant)
+
+### Installation
+
+1. Install libmagic
+
+  ```bash
+  sudo apt install libmagic1
+  ```
+
+2. Install dependencies
+
+  ```bash
+  poetry install
+  ```
+
+### Run the app
+
+3. Configure environment variables for your model. See `IngestionEnvs` in *aipipeline/utilities/constants.py*.
+4. Start the app
+
+  ```bash
+  poetry shell
+  python main.py
+  ```
+
 ## Description
-AI Pipeline from Dr. Diego Colombo and Tara E. Walker to build a dynamic ingestion and retrieval pipeline for various RAG techniques and storage options. Desired application for this pipeline is to be used as a backend processing service at scale with queuing mechanisms for Generative AI ingestion and retrieval using document graph and semantic relationships. This leverages open source framework LlamaIndex and has integration with other common AI frameworks. 
+
+AI Pipeline from Dr. Diego Colombo, Tara E. Walker and Luis Quintanilla to build a dynamic ingestion and retrieval pipeline for various RAG techniques and storage options. Desired application for this pipeline is to be used as a backend processing service at scale with queuing mechanisms for Generative AI ingestion and retrieval using document graph and semantic relationships. This leverages open source framework LlamaIndex and has integration with other common AI frameworks. 
 
 ### Goals
 Goal of this project is to provide a scalabe ingestion and retrieval engine across multi data types without developers that are familiar with AI/ML/NLP concepts to easily build applications that take in content for a Advanced RAG scenario. 
@@ -167,40 +205,9 @@ To create a configuration and execute a Benchmarking event, the code example is 
 ```
 The repo has an example of an Benchmark Session application in code file: *_benchmark_app.py_*
 
-## Getting Started
+## Deployment (CI/CD)
 
-1. Install libmagic
-
-  ```bash
-  sudo apt install libmagic1
-  ```
-
-1. Install dependencies
-
-  ```bash
-  poetry install
-  ```
-
-1. Configure environment variables for your model. See `IngestionEnvs` in *aipipeline/utilities/constants.py*.
-1. Start the app
-
-  ```bash
-  poetry shell
-  python main.py
-  ```
-
-### Prerequisites
-
-#### Local
-
-- Ubuntu 22.04 LTS
-- Python 3.11
-- Poetry
-- Docker
-- Neo4J
-- Vector DB (Qdrant)
-
-### Deployment (CI/CD)
+TBD
 
 ## Concepts and Resources
 
@@ -225,89 +232,22 @@ There are various RAG techniques that can be employed for a RAG pipeline. Here a
 - A Beginner’s Guide to Similarity Search & Vector Indexing: https://medium.com/@kbdhunga/a-beginners-guide-to-similarity-search-vector-indexing-part-one-9cf5e9171976 
 
 -----------------------------------------------
-<!-----------------------[  Access  ]-----------------------<recommended> section below------------------>
 
 ## Access
 This repo is managed by DevDiv organization. Please reach out to Diego Colombo or Tara Walker for access. 
 
 **For Usage:** 
 Please follow common attribution guidelines and best practices for Microsoft when leveraging code in this repo. 
-<!-- 
-INSTRUCTIONS:
-- Please use this section to reduce the all-too-common friction & pain of getting read access and role-based permissions 
-  to repos inside Microsoft. Please cover (a) Gaining a role with read, write, other permissions. (b) sharing a link to 
-  this repository such that people who are not members of the organization can access it.
-- If the repository is set to internalVisibility, you may also want to refer to the "Sharing a Link to this Repository" sub-section 
-of the [README-Template instructions](https://aka.ms/StartRight/README-Template/Instructions#sharing-a-link-to-this-repository) so new GitHub EMU users know to get 1ES-Enterprise-Visibility MyAccess group access and therefore will have read rights to any repo set to internalVisibility.
 
-How to Evaluate & Examples:
-  - https://aka.ms/StartRight/README-Template/Instructions#how-to-share-an-accessible-link-to-this-repository
--->
-
-
-<!---- [TODO]  CONTENT GOES BELOW ------->
-
-<!------====-- CONTENT GOES ABOVE ------->
-
-
-<!-----------------------[  Contributing  ]-----------------<recommended> section below------------------>
 ## Contributing
 
-<!--
-INSTRUCTIONS: 
-- Establish expectations and processes for existing & new developers to contribute to the repository.
-  - Describe whether first step should be email, teams message, issue, or direct to pull request.
-  - Express whether fork or branch preferred.
-- CONTRIBUTING content Location:
-  - You can tell users how to contribute in the README directly or link to a separate CONTRIBUTING.md file.
-  - The README sections "Contacts" and "Reuse Expectations" can be seen as subsections to CONTRIBUTING.
-  
-How to Evaluate & Examples:
-  - https://aka.ms/StartRight/README-Template/Instructions#contributing
--->
-
-<!---- [TODO]  CONTENT GOES BELOW ------->
 _This repository prefers outside contributors start forks rather than branches. For pull requests more complicated than typos, it is often best to submit an issue first._
 
 If you are a new potential collaborator who finds reaching out or contributing to another project awkward, you may find 
 it useful to read these [tips & tricks](https://aka.ms/StartRight/README-Template/innerSource/2021_02_TipsAndTricksForCollaboration) 
 on InnerSource Communication.
-<!------====-- CONTENT GOES ABOVE ------->
-
-
-<!-----------------------[  Contacts  ]---------------------<recommended> section below------------------>
-<!-- 
-#### Contacts  
--->
-<!--
-INSTRUCTIONS: 
-- To lower friction for new users and contributors, provide a preferred contact(s) and method (email, TEAMS, issue, etc.)
-
-How to Evaluate & Examples:
-  - https://aka.ms/StartRight/README-Template/Instructions#contacts
--->
-
-<!---- [TODO]  CONTENT GOES BELOW ------->
-
-<!------====-- CONTENT GOES ABOVE ------->
-
-
-<!-----------------------[  Support & Reuse Expectations  ]-----<recommended> section below-------------->
  
 ### Support & Reuse Expectations
-
- 
-<!-- 
-INSTRUCTIONS:
-- To avoid misalignments use this section to set expectations in regards to current and future state of:
-  - The level of support the owning team provides new users/contributors and 
-  - The owning team's expectations in terms of incoming InnerSource requests and contributions.
-
-How to Evaluate & Examples:
-  - https://aka.ms/StartRight/README-Template/Instructions#support-and-reuse-expectations
--->
-
-<!---- [TODO]  CONTENT GOES BELOW ------->
 
 _The creators of this repository are open to reuse with attribution._
 
@@ -317,41 +257,5 @@ leave a note in an issue, so we can best understand the value of this repository
 Maintainers are: 
 * Dr. Diego Colombo: diego.colombo@microsoft.com
 * Tara E. Walker: tara.walker@microsoft.com
+* Luis Quintanilla: luis.quintanilla@microsoft.com
   
-<!------====-- CONTENT GOES ABOVE ------->
-
-
-<!-----------------------[  Limitations  ]----------------------<optional> section below----------------->
-
-<!-- 
-### Limitations 
---> 
-
-<!-- 
-INSTRUCTIONS:
-- Use this section to make readers aware of any complications or limitations that they need to be made aware of.
-  - State:
-    - Export restrictions
-    - If telemetry is collected
-    - Dependencies with non-typical license requirements or limitations that need to not be missed. 
-    - trademark limitations
- 
-How to Evaluate & Examples:
-  - https://aka.ms/StartRight/README-Template/Instructions#limitations
--->
-
-<!---- [TODO]  CONTENT GOES BELOW ------->
-
-<!------====-- CONTENT GOES ABOVE ------->
-
---------------------------------------------
-
-
-<!-----------------------[  Links to Platform Policies  ]-------<recommended> section below-------------->
-<!--## How to Accomplish Common User Actions-->
-<!-- 
-INSTRUCTIONS: 
-- This section links to information useful to any user of this repository new to internal GitHub policies & workflows.
--->
-
-<!-- version: 2023-04-07 [Do not delete this line, it is used for analytics that drive template improvements] -->
