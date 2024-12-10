@@ -34,6 +34,24 @@ Vectorization Library for the AI Apps
 - Neo4J
 - Vector DB (Qdrant)
 
+**Neo4J Installation**
+- Docker Install
+  ```sh
+  docker run --restart always -p 7474:7474 -p 7687:7687 -e NEO4J_AUTH=neo4j/<your_password> -v $pwd/neo4j/data:/data -v $pwd/neo4j/plugins:/plugins -v $pwd/neo4j/logs:/logs -e NEO4J_apoc_export_file_enabled=true  -e NEO4J_apoc_import_file_enabled=true -e NEO4J_apoc_import_file_use__neo4j__config=true -e NEO4J_dbms_security_procedures_unrestricted=apoc.* --name <your-name> neo4j:5.25.1
+  ```
+  
+- AKS Install
+https://github.com/AIGeekSquad/neo4j-on-azure 
+
+**Qdrant Installation**
+- Docker Install
+ ```sh
+docker pull qdrant/qdrant
+ docker run -p 6333:6333 -p 6334:6334 -v $(pwd)/qdrant_storage:/qdrant/storage:z qdrant/qdrant
+```
+- AKS Install
+ https://qdrant.tech/documentation/guides/installation/?q=kube#kubernetes
+
 ### Installation
 
 1. Install libmagic
