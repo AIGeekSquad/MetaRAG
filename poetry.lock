@@ -1721,6 +1721,7 @@ files = [
 ]
 
 [package.dependencies]
+aiohttp = {version = "*", optional = true, markers = "extra == \"inference\""}
 filelock = "*"
 fsspec = ">=2023.5.0"
 packaging = ">=20.9"
@@ -2718,6 +2719,22 @@ llama-index-core = ">=0.12.0,<0.13.0"
 openai = ">=1.1.0"
 
 [[package]]
+name = "llama-index-embeddings-text-embeddings-inference"
+version = "0.3.1"
+description = "llama-index embeddings text embeddings inference integration"
+optional = false
+python-versions = "<4.0,>=3.9"
+files = [
+    {file = "llama_index_embeddings_text_embeddings_inference-0.3.1-py3-none-any.whl", hash = "sha256:cbe45fc61671d4d428c8322cbdd22af4a0adc183e2412332503dcdd78f623929"},
+    {file = "llama_index_embeddings_text_embeddings_inference-0.3.1.tar.gz", hash = "sha256:169b2c022894172809c999470744659013bf3ed04b0f15e1127109c719f2286f"},
+]
+
+[package.dependencies]
+httpx = ">=0.26.0"
+llama-index-core = ">=0.12.0,<0.13.0"
+llama-index-utils-huggingface = ">=0.3.0,<0.4.0"
+
+[[package]]
 name = "llama-index-indices-managed-llama-cloud"
 version = "0.6.3"
 description = "llama-index indices llama-cloud integration"
@@ -2954,6 +2971,21 @@ requests = ">=2.31.0,<3.0.0"
 selenium = ">=4.17.2,<5.0.0"
 spider-client = ">=0.0.27,<0.0.28"
 urllib3 = ">=1.1.0"
+
+[[package]]
+name = "llama-index-utils-huggingface"
+version = "0.3.0"
+description = "llama-index utils for huggingface integration"
+optional = false
+python-versions = "<4.0,>=3.9"
+files = [
+    {file = "llama_index_utils_huggingface-0.3.0-py3-none-any.whl", hash = "sha256:03691de49f9dab86822ae1f86088433bc2f611f058bd9df995112843cd7ef5dd"},
+    {file = "llama_index_utils_huggingface-0.3.0.tar.gz", hash = "sha256:039b3facbe3468dd10b728c3ef9161adca862f043bd23b629aec57140ce216b2"},
+]
+
+[package.dependencies]
+huggingface-hub = {version = ">=0.19.0", extras = ["inference"]}
+llama-index-core = ">=0.12.0,<0.13.0"
 
 [[package]]
 name = "llama-parse"
@@ -7567,4 +7599,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "21e6d2577d2a577454c2364a3e12608e64daab06ac943d53c273beb10b6cd706"
+content-hash = "090f4c1ae4f3a35ed5de7229974ac10a0134f51cd69266ee90957a08b1d41030"
