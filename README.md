@@ -21,6 +21,8 @@ Vectorization Library for the AI Apps
 
 ## Getting Started
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/AIGeekSquad/MetaRAG)
+
 ### Prerequisites
 
 #### Local
