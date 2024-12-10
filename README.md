@@ -1,6 +1,6 @@
-# ai-apps-job: Ingestion & Retrieval Pipeline with Benchmarking and Query capabilities
+# MetaRAG: Ingestion & Retrieval Pipeline with Benchmarking and Query capabilities
 
-- [ai-apps-job: Ingestion \& Retrieval Pipeline with Benchmarking and Query capabilities](#ai-apps-job-ingestion--retrieval-pipeline-with-benchmarking-and-query-capabilities)
+- [Ingestion \& Retrieval Pipeline with Benchmarking and Query capabilities](#ai-apps-job-ingestion--retrieval-pipeline-with-benchmarking-and-query-capabilities)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installing](#installing)
