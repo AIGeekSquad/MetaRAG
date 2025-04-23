@@ -25,14 +25,69 @@ Vectorization Library for the AI Apps
 
 ### Prerequisites
 
-#### Local
+#### Local Prerequisites
 
-- Ubuntu 22.04 LTS
+- Ubuntu 22.04 LTS / Windows / macOS
+- [uv](https://docs.astral.sh/uv/)
 - Python 3.11
-- [Poetry](https://python-poetry.org/docs/)
 - Docker
 - Neo4J
 - Vector DB (Qdrant)
+
+#### Installation Steps
+
+1. Install uv package manager:
+
+**For Windows:**
+```powershell
+winget install astral-sh.uv -e
+```
+
+**For Linux (Ubuntu/Debian):**
+```bash
+sudo apt update && sudo apt install pipx
+pipx ensurepath
+pipx install uv
+```
+
+**For macOS:**
+```bash
+brew install uv
+```
+
+2. Create and activate virtual environment:
+
+**For Windows:**
+```powershell
+# Create virtual environment
+uv venv --python 3.11
+
+# Activate virtual environment
+.venv\Scripts\activate
+```
+
+**For Linux/macOS:**
+```bash
+# Create virtual environment
+uv venv --python 3.11
+
+# Activate virtual environment
+source .venv/bin/activate
+```
+
+3. Install libmagic
+```bash
+# On Ubuntu/Debian
+sudo apt install libmagic1
+```
+
+4. Install dependencies:
+
+**For all platforms:**
+```bash
+uv pip install -r requirements.txt
+uv pip install -r requirements-dev.txt
+```
 
 **Neo4J Installation**
 - Docker Install
@@ -60,28 +115,30 @@ docker pull qdrant/qdrant
   sudo apt install libmagic1
   ```
 
-2. Install dependencies
+2. Install dependencies:
 
-  ```bash
-  poetry install
-  ```
+```bash
+# Make sure your virtual environment is activated
+.venv/Scripts/activate
+uv sync
+```
 
 ### Run the app
 
 3. Configure environment variables for your model. See `IngestionEnvs` in *aipipeline/utilities/constants.py*.
-4. Start the app
+4. Start the app:
 
-  ```bash
-  poetry shell
-  python main.py
-  ```
+```bash
+# Make sure your virtual environment is activated
+python main.py
+```
 
 ## Description
 
 AI Pipeline from Dr. Diego Colombo, Tara E. Walker and Luis Quintanilla to build a dynamic ingestion and retrieval pipeline for various RAG techniques and storage options. Desired application for this pipeline is to be used as a backend processing service at scale with queuing mechanisms for Generative AI ingestion and retrieval using document graph and semantic relationships. This leverages open source framework LlamaIndex and has integration with other common AI frameworks. 
 
 ### Goals
-Goal of this project is to provide a scalabe ingestion and retrieval engine across multi data types without developers that are familiar with AI/ML/NLP concepts to easily build applications that take in content for a Advanced RAG scenario. 
+Goal of this project is to provide a scalable ingestion and retrieval engine across multi data types without developers that are familiar with AI/ML/NLP concepts to easily build applications that take in content for a Advanced RAG scenario. 
 
 The project has a dynamic configuration that allows developers that are familiar with the various RAG techniques or who wish to use different models or storage mechanisms to do so, therefore, the project is targeted to be a **backend processing pipeline** to be leveraged by other services for ingestion & retrieval at scale against a myriad of storage options. 
  
