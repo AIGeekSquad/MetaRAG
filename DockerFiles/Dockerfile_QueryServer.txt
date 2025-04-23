@@ -14,16 +14,13 @@ RUN apt-get update && apt-get install -y \
 RUN pipx install uv
 ENV PATH="/root/.local/bin:$PATH"
 
-# Copy requirements and install dependencies
-COPY ./Dockerfiles/requirements.txt .
+# Copy project files and install dependencies
+COPY pyproject.toml .
+RUN uv sync
 RUN uv pip install --upgrade pymupdf
-RUN uv pip install -r requirements.txt
 
 # Copy application code
 COPY . .
-
-# Install the package in editable mode
-RUN cd ./src && uv pip install -e .
 
 EXPOSE 8000
 CMD ["uvicorn", "query_server_process:app", "--host", "0.0.0.0", "--port", "8000"]

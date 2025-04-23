@@ -20,12 +20,12 @@ ENV PATH="/root/.local/bin:$PATH"
 # Set CUDA support for llama-cpp-python
 ENV CMAKE_ARGS="-DLLAMA_CUBLAS=on"
 
-# Copy requirements and install dependencies
-COPY ./Dockerfiles/requirements.txt .
+# Copy project files and install dependencies
+COPY pyproject.toml .
+RUN uv sync
 RUN uv pip install llama-cpp-python --no-cache-dir
 RUN uv pip install --upgrade pymupdf
-RUN uv pip install -U openai-whisper
-RUN uv pip install -r requirements.txt
+RUN uv pip install --upgrade openai-whisper
 
 # Copy application code
 COPY . .
