@@ -3,7 +3,6 @@ from dataclasses import dataclass
 from llama_index.core.base.embeddings.base import BaseEmbedding
 from llama_index.core.llms.llm import LLM
 from llama_index.core.schema import BaseNode, TextNode
-from scipy.spatial.distance import pdist
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.metrics.pairwise import cosine_distances

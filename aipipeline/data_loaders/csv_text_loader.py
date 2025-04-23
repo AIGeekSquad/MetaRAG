@@ -3,7 +3,6 @@
 
 from aipipeline.data_loaders.loaders_base_component import DataLoaderBaseComponent
 from aipipeline.knowledge_graph.kg_base_component import DocumentGraphBaseComponent
-from aipipeline.knowledge_graph.node_transformations import generate_summary_node
 from aipipeline.node_transformers.knowledge_generator import ApplyKnowledgeLabel, KnowledgeGenerator
 
 from llama_index.core.schema import TextNode
