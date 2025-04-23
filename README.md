@@ -9,6 +9,7 @@
     - [Ingestion](#ingestion)
     - [Retrieval](#retrieval)
     - [Benchmarking](#benchmarking)
+  - [Architecture](#architecture)
   - [Deployment (CI/CD)](#deployment-cicd)
   - [Concepts and Resources](#concepts-and-resources)
     - [Understanding different techniques for Retrieval Augmented Generation](#understanding-different-techniques-for-retrieval-augmented-generation)
@@ -135,7 +136,52 @@ python main.py
 
 ## Description
 
-AI Pipeline from Dr. Diego Colombo, Tara E. Walker and Luis Quintanilla to build a dynamic ingestion and retrieval pipeline for various RAG techniques and storage options. Desired application for this pipeline is to be used as a backend processing service at scale with queuing mechanisms for Generative AI ingestion and retrieval using document graph and semantic relationships. This leverages open source framework LlamaIndex and has integration with other common AI frameworks. 
+AI Pipeline from Dr. Diego Colombo, Tara E. Walker and Luis Quintanilla to build a dynamic ingestion and retrieval pipeline for various RAG techniques and storage options. Desired application for this pipeline is to be used as a backend processing service at scale with queuing mechanisms for Generative AI ingestion and retrieval using document graph and semantic relationships. This leverages open source framework LlamaIndex and has integration with other common AI frameworks.
+
+## Architecture
+
+```mermaid
+graph TD
+    A[Client] --> B[Main Pipeline]
+
+    subgraph Pipeline
+    B --> C{Data Loaders}
+    C --> |PDF| D[PDF Loader]
+    C --> |Wikipedia| E[Wikipedia Loader]
+    C --> |CSV| F[CSV Loader]
+    C --> |Web| G[Web Loader]
+    
+    D & E & F & G --> H[Node Transformers]
+    H --> I[Knowledge Graph]
+    H --> J[Vector Storage]
+
+    K[Configuration] --> B
+    end
+
+    subgraph Storage
+    I --> L[Neo4J]
+    I --> M[Nebula Graph]
+    J --> N[Qdrant]
+    J --> O[Milvus]
+    end
+
+    subgraph Query
+    P[Query Service] --> Q[Vector & Graph Retrieval]
+    Q --> I
+    Q --> J
+    end
+
+    subgraph Evaluation
+    R[Benchmarking] --> S[LlamaIndex]
+    R --> T[Ragas]
+    R --> U[TruLens]
+    end
+
+    style Pipeline fill:#f9f,stroke:#333,stroke-width:2px
+    style Storage fill:#bbf,stroke:#333,stroke-width:2px
+    style Query fill:#bfb,stroke:#333,stroke-width:2px
+    style Evaluation fill:#fbb,stroke:#333,stroke-width:2px
+```
 
 ### Goals
 Goal of this project is to provide a scalable ingestion and retrieval engine across multi data types without developers that are familiar with AI/ML/NLP concepts to easily build applications that take in content for a Advanced RAG scenario. 
@@ -154,7 +200,7 @@ The project has a dynamic configuration that allows developers that are familiar
 ### Ingestion
 
 **_Processing Data & Files:_** 
-The Data file process looks at files in the directory passed and based upon the Mime type it selected and passes the file to the appropriate Data Loader to create and store semantic relationships via nodes in GraphDatabase AND store related embeddings (to each node) in a vector database. Allowing for BOTH ANN search and graph based relationship search to reduce hallicinations and ensure relevance to queries and/or questions asked by LLM.
+The Data file process looks at files in the directory passed and based upon the Mime type it selected and passes the file to the appropriate Data Loader to create and store semantic relationships via nodes in GraphDatabase AND store related embeddings (to each node) in a vector database. Allowing for BOTH ANN search and graph based relationship search to reduce hallucinations and ensure relevance to queries and/or questions asked by LLM.
 
 Current the Ingestion Pipeline supports: 
 - PDF: Reads both text and images and gets context from images to be include in embedding creation for PDFs
@@ -162,7 +208,7 @@ Current the Ingestion Pipeline supports:
 - CSV Files: Reads CSV files and creates embeddings
 - Web URLs: Read and processes data from web pages even ones in which you can not read the DOM
 - 
-To process data from Wikipedia for right now, a environment variable named "CATEGORY_LIST" should be set with comma delimited strings of categories. Example: \["electric guitar", "guitar heros", "acoustic guitar"\]
+To process data from Wikipedia for right now, a environment variable named "CATEGORY_LIST" should be set with comma delimited strings of categories. Example: \["electric guitar", "guitar heroes", "acoustic guitar"\]
 
 To process content from the web via urls, a json file should be created that has urls in the following json format: 
 {
