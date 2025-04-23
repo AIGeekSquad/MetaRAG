@@ -5,7 +5,7 @@ from typing import Any, List, Optional
 from llama_index.core.query_engine import BaseQueryEngine
 from datasets import Dataset
 from ragas import evaluate
-from ragas.metrics.critique import harmfulness
+from ragas.metrics._aspect_critic import harmfulness
 from ragas.metrics import (
     answer_relevancy,
     faithfulness,

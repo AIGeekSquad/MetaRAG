@@ -6,7 +6,7 @@ from enum import IntEnum
 from typing import List
 import json
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 
 ##TODO: Add Multi-Modal Model
